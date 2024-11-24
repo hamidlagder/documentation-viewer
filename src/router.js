@@ -24,3 +24,16 @@ export function loadContent(filePath) {
     });
 }
 
+export function loadSidebar() {
+  const files = [
+    { name: 'Introduction', path: './docs/introduction.md' },
+    { name: 'Getting Started', path: './docs/getting-started.md' },
+    { name: 'Advanced Topics', path: './docs/advanced-topics.md' },
+    { name: 'Project Plan', path: './docs/plan.md' },  // New link to the Plan page
+  ];
+
+  const sidebar = document.getElementById('sidebar');
+  sidebar.innerHTML = files
+    .map(file => `<a href="#" data-file="${file.path}">${file.name}</a>`)
+    .join('<br>');
+}
